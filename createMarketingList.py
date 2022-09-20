@@ -33,16 +33,11 @@ csvfile = csv.reader(infile,delimiter=',')
 outfile = open('marketinglistFINAL.csv','w')
 
 
-
-
-
-
 # create an empty dictionary
 market_dict = dict()
 
 # iterate through the csv object
 for row in csvfile:
-    print(row[1] + ' ' +row[2],row[4],row[5])
 # add the key-value pair to the dictionary
     market_dict = {'Name':row[1] + ' ' +row[2],
         'Email': row[4], 
@@ -50,17 +45,16 @@ for row in csvfile:
 
 # print the dictionary after the loop is finished
     for i in market_dict:
-        print(market_dict['Name'],market_dict['Email'],market_dict['Phone'])
+        #print(market_dict['Name'],market_dict['Email'],market_dict['Phone'])
 
 
+     print(market_dict)
 
 # iternate through the dictionary and write to the output file
-
-outfile = open('marketinglistFINAL.csv','w')
 outfile.write('Name,Email,Phone\n')
-
 for x in market_dict:
-  outfile.write(['Name'],x['Email'], x['Phone']+'\n')
+  outfile.write(market_dict['Name'])
+
 
 # close your output file
 outfile.close()
